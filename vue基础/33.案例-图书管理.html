@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid {
+            margin: auto;
+            width: 500px;
+            text-align: center;
+        }
+        
+        .grid table {
+            border-top: 1px solid #C2D89A;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .grid th,
+        td {
+            padding: 10;
+            border: 1px dashed orange;
+            height: 35px;
+            line-height: 35px;
+        }
+        
+        .grid th {
+            background-color: orange;
+        }
+        
+        .grid .book {
+            padding-bottom: 10px;
+            padding-top: 5px;
+            background-color: #F3DCAB;
+        }
+        
+        .grid .total {
+            height: 30px;
+            line-height: 30px;
+            background-color: #F3DCAB;
+            border-top: 1px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="grid">
+            <div>
+                <h1>图书管理</h1>
+                <div class="book">
+                    <label for="id">
+                        编号:
+                    </label>
+                    <input type="text" id="id" v-model='id' :disabled="flag" v-focus>
+                    <label for="name">名称：</label>
+                    <input type="text" id="name" v-model='name'>
+                    <button @click='handle' :disabled="submitFlag">提交</button>
+                </div>
+            </div>
+            <div class="total">
+                <span>图书总数</span>
+                <span>{{total}}</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>名称</th>
+                        <th>时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr :key='item.id' v-for='item in books'>
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.date|format('yyyy-MM-dd hh:mm:ss')}}</td>
+                        <td>
+                            <a href="" @click.prevent='toEdit(item.id)'>修改</a>
+                            <span>|</span>
+                            <a href="" @click.prevent='deletBook(item.id)'>删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/time.js"></script>
+    <script type="text/javascript">
+        // 过滤时间
+        Vue.filter('format', function(date, arg) {
+            return dateFormat2(date, arg)
+        })
+        Vue.directive('focus', {
+            inserted: function(el) {
+                el.focus();
+            }
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                submitFlag: false,
+                flag: false,
+                id: '',
+                name: '',
+                books: []
+            },
+            methods: {
+                handle: function() {
+                    if (this.flag) {
+                        // 编辑操作
+                        // 根据当前的ID去更新数组中对应的数据
+                        this.books.some((item) => {
+                            if (item.id == this.id) {
+                                item.name = this.name;
+                                return true;
+                            }
+                        });
+                        this.flag = false;
+                    } else {
+                        var book = {};
+                        book.id = this.id;
+                        book.name = this.name;
+                        book.date = '';
+                        this.books.push(book);
+                    }
+                    this.id = '';
+                    this.name = '';
+                },
+                toEdit: function(id) {
+                    this.flag = true;
+                    var book = this.books.filter(function(item) {
+                        return item.id == id;
+                    });
+                    console.log(book);
+                    this.id = book[0].id;
+                    this.name = book[0].name;
+                },
+                deletBook: function(id) {
+                    // 删除图书 根据id从数组中查找元素的索引
+                    // var index = this.books.findIndex(function(item) {
+                    //     return item.id = id;
+                    // });
+                    // 根据索引删除数组元素
+                    // this.books.splice(index, 1);
+                    // 方法二：通过filter方法进行删除
+                    this.books = this.books.filter(function(item) {
+                        return item.id != id;
+                    })
+                }
+
+            },
+            computed: {
+                total: function() {
+                    // 计算图书总数
+                    return this.books.length;
+                }
+            },
+            watch: {
+                name: function(val) {
+                    // 验证图书是否已经存在
+                    var flag = this.books.some(function(item) {
+                        return item.name == val;
+                    });
+                    if (flag) {
+                        // 图书已经存在
+                        this.submitFlag = true;
+                    } else {
+                        // 图书不存在
+                        this.submitFlag = false;
+                    }
+                }
+            },
+            mounted: function() {
+                // 该生命周期钩子函数被触发的时候，模板已经可以使用
+                // 一般一般此时用于获取后台数据，然后把数据填充到模板
+                var data = [{
+                    id: 1,
+                    name: '三国演义',
+                    date: 2525609975000
+                }, {
+                    id: 2,
+                    name: '水浒传',
+                    date: 1231231231231
+                }, {
+                    id: 1,
+                    name: '红楼梦',
+                    date: 3213213216546
+                }, {
+                    id: 1,
+                    name: '西游记',
+                    date: 4563214561231
+                }];
+                this.books = data;
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 400px;
+            height: 300px;
+            background-color: #f00;
+        }
+        
+        .son {
+            width: 200px;
+            height: 100px;
+            background-color: #ff0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">box</div>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <form action="">
+        <input type="text" name="user">
+        <input type="submit">
+    </form>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script>
+    // click() 鼠标单击
+    // $('.box').click(function() {
+    //     $(this).html('这是click事件触发的结果').css('color', 'red')
+    // })
+
+    // mouserover()鼠标进入 子元素也会触发
+    /*     $('.box').mouseover(function() {
+            $(this).css('color', 'red');
+        })
+
+        // mouserover()鼠标离开 子元素也会触发
+        $('.box').mouseout(function() {
+            $(this).css('color', '#000');
+        }) */
+    // mouserover()鼠标进入子元素也会触发
+    $('.box').mouseover(function() {
+        $(this).css('color', 'red');
+    }).mouseout(function() {
+        $(this).css('color', '#000');
+    })
+
+
+    // $('.box').bind('mouseover mouseout', function() {
+    //     console.log(111111111);
+    // })
+
+
+    // $('.box').on('mouseover mouseout', function() {
+    //     console.log(111111111);
+    // })
+
+    /*     $('.box').one('mouseover mouseout', function() {
+            console.log(111111111);
+        }) */
+    /*     $('.father').mouseover(function() {
+            console.log('father');
+        }); */
+    // $('.son').mouseover(function() {
+    //     console.log('son');
+    // });
+
+
+    // //会阻止冒泡事件
+    // $('.father').mouseenter(function() {
+    //     console.log('father');
+    // });
+    // $('.son').mouseenter(function() {
+    //     console.log('son');
+    // });
+
+
+    // $('input[name=user]').keydown(function(e) {
+    //     console.log(e);
+    //     if (e.keyCode == 32) { //当按下空格键
+    //         console.log($(this).val());
+    //     }
+    // });
+
+    // $('input[name=user]').keypress(function(e) {
+    //     // console.log(e);
+    //     if (e.charCode == 65) { //当输入大写字母A时
+    //         console.log($(this).val());
+    //     }
+    // });
+
+    // focus()元素获得焦点
+    // $('input[name=user]').focus(function() {
+    //     alert()
+    // })
+
+    //blur()元素失去焦点
+    $('input[name=user]').blur(function() {
+        var val = $(this).val();
+        if (val.length < 2 || val.length > 8) {
+            alert('您输入的长度不对,应该输入2-8个字符！')
+        }
+    })
+
+    //submit()用戶递交表单
+    // $('form').submit(function() {
+    //     alert('submit')
+    // })
+
+
+    $('input[type=submit]').click(function() {
+            alert('click')
+        })
+        //hover()同时为mouseenter和mouserleave事件指定处理函数
+        // $('.box').hover(function() {
+        //     $(this).css('color', 'red')
+        // }, function() {
+        //     $(this).css('color', 'blue')
+        // })
+
+    $('.box').mouseenter(function() {
+        $(this).css('color', 'red')
+    }).mouseleave(function() {
+        $(this).css('color', 'blue')
+    })
+
+
+    //ready() DOM加载完成
+    //resize() 浏览器窗口的大小发生改变
+    $(window).resize(function() {
+        console.log(11111111111);
+    })
+</script>
+
+</html>

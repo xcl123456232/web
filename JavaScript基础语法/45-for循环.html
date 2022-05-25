@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        for (var i = 0; i < 100; i++) {
+            console.log('你好吗');
+        }
+        //1.首先执行里面的计数器变量 var i=1,但是这句话在for里面只执行一次 index
+        //2.去i<=100来判断是否满足条件，如果满足条件 就去执行循环体 不满足条件就推出循环
+        //3.最后去执行i++ i++是单独写的代码 递增 第一轮结束
+        //4.接着去执行i<=100 如果满足条件 就去执行循环体 不满足调价推出循环 第二轮
+
+        //执行相同代码
+        var num = prompt('请您输入次数');
+        for (var i = 1; i <= num; i++) {}
+        console.log('媳妇我错了');
+        //执行不同的代码
+        for (var i = 1; i <= 100; i++) {
+            console.log('这个人今年' + i + '岁了');
+        }
+        for (var i = 1; i <= 100; i++) {
+            if (i == 1) {
+                alert('这个人今年1岁了');
+            } else if (i == 100) {
+                alert('这个人今年100岁了');
+            } else {
+                alert('这个人今年' + i + '岁了');
+            }
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

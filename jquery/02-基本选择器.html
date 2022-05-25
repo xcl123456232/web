@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./jquery.min-3.6.0.js"></script>
+    <script>
+        // console.log($('.box'));
+        //如果JQ代码写在body前，必须将代码写在ready事件中，ready事件表示所有DOM加载完之后才执行
+        $(document).ready(function() {
+                console.log($('.box'));
+            })
+            //简化写法
+        $(function() {
+            //ready事件可以写多个，相当于JS中的onload事件，跟onload的区别是可以出现多次，而onload只能出现一次
+            // console.log($('.box'));
+            //id
+            $('#box').css({
+                    color: 'blue',
+                    background: '#eee'
+
+                })
+                //class
+            $('.box1').css({
+                    color: 'red',
+                    background: '#eee',
+                    // 'margin-bottom': '10px'
+                    marginBottom: '30px'
+
+                })
+                //标签
+            $('p').css({
+                color: 'red',
+                background: '#eee',
+                // 'margin-bottom': '10px'
+                marginBottom: '30px'
+
+            })
+            console.log($('*'));
+            $('#div,.box1,  p').click(function() {
+                console.log($(this).html());
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+    <div class="box1">class1</div>
+    <div class="box1">class2</div>
+    <div class="box1">class3</div>
+    <div id="box">class</div>
+    <p>ppp1</p>
+    <p>ppp2</p>
+</body>
+
+</html>

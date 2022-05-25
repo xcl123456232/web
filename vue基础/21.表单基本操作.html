@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form div:nth-child(4) {
+            height: auto;
+        }
+        
+        form div {
+            height: 40px;
+            line-height: 40px;
+        }
+        
+        form div span:first-child {
+            display: inline-block;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <form action="">
+            <div>
+                <span>姓名：</span>
+                <span>
+                <input type="text" v-model='uname'>
+            </span>
+            </div>
+            <div>
+                <span>性别：</span>
+                <span>
+                <input type="radio" id="male" v-model='gender' value="1">
+                <label for="male">男</label>
+                <input type="radio" id="female" v-model='gender' value="2">
+                <label for="female">女</label>
+            </span>
+            </div>
+            <div>
+                <span>爱好：</span>
+                <input type="checkbox" id="ball" v-model='hobby' value="1">
+                <label for="ball">篮球</label>
+                <input type="checkbox" id="ball" v-model='hobby' value="2">
+                <label for="sing">唱歌</label>
+                <input type="checkbox" id="ball" v-model='hobby' value="3">
+                <label for="code">写代码</label>
+            </div>
+            <div>
+                <span>职业:</span>
+                <select name="" id="" v-model='occupation' multiple>
+                <option value="0">请选择职业</option>
+                <option value="1">教师</option>
+                <option value="2">软件工程师</option>
+                <option value="3">律师</option>
+            </select>
+            </div>
+            <div>
+                <span>个人简介：</span>
+                <textarea v-model='desc'></textarea>
+            </div>
+            <input type="submit" value="提交" @click.prevent='handle'>
+        </form>
+    </div>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                uname: '李四',
+                gender: 2,
+                hobby: ['2', '3'],
+                occupation: ['2', '3'],
+                desc: '31313'
+            },
+            methods: {
+                handle: function() {
+                    // console.log(this.uname);
+                    console.log(this.gender);
+                    console.log(this.hobby);
+                    console.log(this.occupation)
+                    console.log(this.desc);
+
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

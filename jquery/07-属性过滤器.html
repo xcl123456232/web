@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p title="ppp">ppppp</p>
+    <p>aaaa</p>
+    <p id="p1" title="pppphh">bbbbbbbbbbbbbbbbbb</p>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.js"></script>
+<script>
+    // [arrr] 获取含有指定属性的元素
+    // $('p[title]').css('color', 'red')
+
+    // [attr=value] 获取属性值为value的元素
+    // $('p[title=ppp]').css('color', 'red')
+    // $('p[id=p1]').css('color', 'red')
+
+    // [attr!=value] 获取属性值不为value的元素
+    // $('p[title!=ppp]').css('color', 'red')
+
+    // [attr^value] 获取属性值以value开头的元素
+    // $('p[title^=ppp]').css('color', 'red')
+
+    // [attr$=value] 获取属性值以value结尾的元素
+    // $('p[title$=p]').css('color', 'red')\
+
+    // [attr*=value] 获取属性值含有value的元素
+    // $('p[title*=p]').css('color', 'red')
+
+    // [attr1][attr2][attr3] 获取含有指定多个属性的元素
+    $('p[title][id]').css('color', 'red')
+</script>
+
+</html>

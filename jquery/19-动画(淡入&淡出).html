@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 300px;
+            background-color: #9f56ff;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button>淡入</button>
+    <button>淡出</button>
+    <button>淡入到指定的不透明度</button>
+    <div class="box">box</div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script>
+    // fadeIn():淡入
+    $('button').eq(0).click(function() {
+            $('.box').fadeIn()
+                // $('.box').fadeIn(4000)
+                /*         $('.box').fadeIn('fast')
+                        $('.box').fadeIn('normal')
+                        $('.box').fadeIn('slow') */
+        })
+        //淡出
+    $('button').eq(1).click(function() {
+            $('.box').fadeOut(3000)
+        })
+        //fadeTo():淡入到指定的不透明度
+    $('button').eq(2).click(function() {
+        // $('.box').fadeTo(2000, .3)
+        // $('.box').fadeTo('slow', .3)
+        $('.box').fadeTo('', .1)
+    })
+</script>
+
+</html>

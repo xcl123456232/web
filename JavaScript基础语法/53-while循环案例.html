@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //while循环案例
+        //1.打印人的一生，从1岁到100岁
+        var i = 1;
+        while (i <= 100) {
+            console.log('这个人今年' + i + '岁了');
+            i++;
+        }
+        //2.计算1~100之间所有整数和
+        var sum = 0;
+        var j = 1;
+        while (j <= 100) {
+            sum += j;
+            j++;
+        }
+        console.log(sum);
+        //3.弹出一个提示框，你爱我吗 如果输入我爱你就提示结束否则，一致输入
+        var tishi = prompt('你爱我吗');
+        while (tishi !== '我爱你' && tishi !== '爱' && tishi !== '爱你') {
+            tishi = prompt('你爱我吗');
+        }
+        alert('我也爱你呀！！！');
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

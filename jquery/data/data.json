@@ -1,0 +1,33 @@
+[{
+        "id": "937493",
+        "name": "Tom",
+        "sex": "male",
+        "age": "18",
+        "score": [78, 89, 35, 12, 12, 56],
+        "addr": "ShenZhen China"
+    },
+    {
+        "id": "23323",
+        "name": "Tom",
+        "sex": "male",
+        "age": "18",
+        "score": [78, 89, 35, 12, 12, 56],
+        "addr": "ShenZhen China"
+    },
+    {
+        "id": "44444444",
+        "name": "Tom",
+        "sex": "male",
+        "age": "18",
+        "score": [78, 89, 35, 12, 12, 56],
+        "addr": "ShenZhen China"
+    },
+    {
+        "id": "11111111",
+        "name": "Tom",
+        "sex": "male",
+        "age": "18",
+        "score": [78, 89, 35, 12, 12, 56],
+        "addr": "ShenZhen China"
+    }
+]

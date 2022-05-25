@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        table {
+            border-collapse: collapse;
+            margin: 50px auto 0;
+        }
+        
+        tr {
+            text-align: center;
+        }
+        
+        td {
+            height: 40px;
+            cursor: pointer;
+        }
+        
+        th {
+            background-color: rgb(0, 153, 203);
+            color: #fff;
+            height: 50px;
+        }
+        
+        tbody tr:nth-child(even) {
+            background-color: #999;
+        }
+        
+        tbody tr:nth-child(odd) {
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1" width="600">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>课程</th>
+                <th>成绩</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>001</td>
+                <td>张三</td>
+                <td>前端开发</td>
+                <td>98</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>李四</td>
+                <td>Java开发</td>
+                <td>89</td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>王五</td>
+                <td>Python开发</td>
+                <td>99</td>
+            </tr>
+            <tr>
+                <td>004</td>
+                <td>赵六</td>
+                <td>UI/UE设计</td>
+                <td>96</td>
+            </tr>
+            <tr>
+                <td>005</td>
+                <td>张磊</td>
+                <td>就业指导</td>
+                <td>67</td>
+            </tr>
+            <tr>
+                <td>006</td>
+                <td>李二虎</td>
+                <td>大数据开发</td>
+                <td>78</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<!-- <script src="/jquery.min-3.6.0.js"></script> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script>
+    var trs = document.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+    for (var i in trs) {
+        trs[i].onmousemove = function() {
+            this.style.backgroundColor = 'green'
+        };
+        trs[i].onmouseout = function() {
+            this.style.backgroundColor = ''
+        }
+    }
+</script>
+
+</html>

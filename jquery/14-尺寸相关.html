@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 400px;
+            height: 200px;
+            border: 2px solid #999;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        
+        span {
+            display: none;
+            border: 1px solid #000;
+            padding: 3px;
+            float: right;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">box</div>
+    <span>回到顶端</span>
+    <div style="height: 1000px;"></div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script>
+    $(function() {
+        /* // 1. 获取和设置元素的尺寸
+        console.log($('.box').width());
+        var dom = $('.box')
+        console.log(dom.height());
+        console.log($(dom).height());
+        $(dom).width('600px');
+        $('.box').height(400);
+        console.log($('.box').width());
+        console.log($(dom).height());
+
+        // 2. 获取包括padding的宽度 / 高度
+        console.log($('.box').innerWidth());
+        $('.box').innerWidth(600)
+        console.log($('.box').width())
+
+
+        // 3. 获取包括padding、margin的宽度/高度
+        console.log($('.box').outerWidth());
+        console.log($('.box').outerWidth(true));
+        // 4.获取相对页面的绝对位置
+        console.log($('.box').offset());
+        console.log($('.box').offset().top);
+        //5.获取浏览器可视区的宽高
+        console.log($(window).width());
+        console.log($(window).height());
+        //6.获取页面文档的宽高
+        console.log($(document).width());
+        //7.获取页面滚动距离
+        console.log($(document).scrollTop());
+ */
+        // $(window).scroll(function() {
+        //     console.log(Math.round($(document).scrollTop()));
+        // })
+
+        function topShow() {
+            var top = Math.round($(document).scrollTop())
+            if (top >= 100) {
+                // $('span').css('display', 'block')
+                console.log($(document).scrollTop());
+                $('span').fadeIn(400)
+            } else {
+                $('span').fadeOut(400)
+
+            }
+        }
+        // topShow();
+        $(window).scroll(function() {
+            topShow();
+        })
+        $('span').click(function() {
+            $(document).scrollTop(0)
+        })
+    })
+</script>
+
+</html>

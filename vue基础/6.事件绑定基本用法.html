@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{num}}</div>
+        <div>
+            <!-- <input type="text" v-model='msg'> -->
+            <button v-on:click='num++ '>点击</button>
+            <button @click='num++ '>点击1</button>
+            <button @click='handle()'>点击1</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript">
+        // v-once的应用场景，如果显示的信息后续不
+        // 需要再更改， 可以使用v - once， 这样可以提高性能
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                num: 0
+            },
+            methods: {
+                handle: function() {
+                    //这里的this是vue的实例对象
+                    console.log(this === vm);
+                    this.num++;
+                }
+
+            }
+        });
+    </script>
+</body>
+
+</html>

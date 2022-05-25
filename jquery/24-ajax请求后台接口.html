@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ajax</title>
+</head>
+<body>
+<ul class="goods"></ul>
+</body>
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+  $.ajax({
+    url: 'http://www.hspstudio.club/seller'
+  }).then(function (res) {
+    console.log(res.goods)
+    var data = res.goods;
+    for(var i in data) {
+      // console.log(data[i])
+      $('.goods').append('<li>' + data[i].name + '</li>')
+      for(var j in data[i].foods){
+        console.log(data[i].foods[j])
+        $('.goods>li').eq(i).append('<ul class="foods"><li><p>商品名：'+data[i].foods[j].name+'</p><p>描述：'+ data[i].foods[j].info +'</p></li></ul>')
+      }
+    }
+  })
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>层次选择器</title>
+</head>
+
+<body>
+    <div class="wapper">
+        <span>span1</span>
+        <div class="box">
+            <span>span2</span>
+        </div>
+    </div>
+    <p>pppppppp</p>
+    <p>pppppppp</p>
+    <p>pppppppp</p>
+    <div class="test">test</div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script>
+    $(function() {
+        //1.选择所有后代的元素
+        // $('.wapper span').html('这是新的span内容');
+
+        //2.选择子元素
+        // $('.wapper>span').html('这是新的span内容');
+
+        //3.选择第一个相邻元素
+        $('.wapper+p').css('color', 'red');
+        $('.wapper+.test').css('color', 'red'); //虽然test是它的兄弟元素，但没有紧挨着
+
+        //4.选择所有兄弟元素
+        $('.wapper~.test').css('color', 'red');
+        $('.wapper~p').css('color', 'red');
+    })
+</script>
+
+</html>

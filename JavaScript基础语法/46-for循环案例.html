@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //1.求1-100之间所有的平均数
+        var sum = 0;
+        var sum1 = 0;
+        for (var i = 1; i <= 100; i++) {
+            sum = sum + i;
+        }
+        console.log(sum / 100);
+        //2.求1-100直接所有偶数和奇数的和
+        var even = 0;
+        var odd = 0;
+        for (var i = 0; i <= 100; i++) {
+            if (i % 2 == 0) {
+                even = even + i;
+            } else {
+                odd = odd + i;
+            }
+        }
+        console.log('所有偶数和是' + even);
+        console.log('所有奇数和是' + odd);
+        //3.求1-100之间所有能被3整除的数字的和
+        for (var i = 1; i <= 100; i++) {
+            if (i % 3 == 0) {
+                // sum1 = sum1 + i;
+                sum1 += i;
+            }
+        }
+        console.log(sum1);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

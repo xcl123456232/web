@@ -1,0 +1,22 @@
+<!DOCTYPE html> <!--文档声明-->
+<html lang="en"> <!--编码语言-->
+<head>
+    <meta charset="UTF-8"> <!--编码格式-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html网页基本结构</title> <!--网页标题-->
+    <script>
+        function isRunYear(year){
+            var flag=false;
+            if(year%4==0&&year%100!=0||year%400==0){
+                flag=true;
+            }
+            return flag;
+        }
+        console.log(isRunYear(2000));
+        console.log(isRunYear(1999));
+    </script>
+</head>
+<body>
+    网页基本内容
+</body>
+</html>

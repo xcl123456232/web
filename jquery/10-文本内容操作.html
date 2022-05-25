@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p><a href="#"><span>这是内容</span></a></p>
+    <input type="text" value="11111">
+    <input type="text" value="2222">
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.js"></script>
+<script>
+    //a.获取文本及表单组件内容
+    //html() 可以操作标签
+    console.log($('p').html());
+    // text()只能操作文本
+    console.log($('p').text());
+    //val() 只能用于表单组件
+    console.log($(':text').val());
+    console.log($(':text').eq(1).val());
+
+
+
+
+
+    // b.设置(修改) 文本及表单组件内容html()
+    // $('p').html('<strong>strong</strong>');  
+    /*     // $('p').text('<strong>strong</strong>');
+        // // val()
+        // $(':text').eq(1).val('asfda');
+     */
+    // c.刪除文本及表单组件内容
+    // html('')
+    // $('p').html('')
+    $('p').text('')
+    $(':text').eq(1).val("")
+</script>
+
+</html>

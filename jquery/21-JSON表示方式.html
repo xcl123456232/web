@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>员工信息</h2>
+    <table border="1" width="300" class="employee">
+        <tr>
+            <th>员工编号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>家庭住址</th>
+        </tr>
+    </table>
+
+    <ul class="score"></ul>
+    <table border="1" width="800" class="student">
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>成绩</th>
+                <th>住址</th>
+            </tr>
+        </thead>
+    </table>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script>
+    var obj = {
+            id: '937493',
+            name: 'Tom',
+            sex: 'male',
+            age: '18',
+            score: [78, 89, 35, 12, 12, 56],
+            addr: 'ShenZhen China'
+        }
+        // console.log(obj);
+    var str = '<tr><td>' + obj.id + '</td><td>' + obj.name + '</td><td>' + obj.sex +
+        '</td><td>' + obj.age + '</td><td>' + obj.addr + '</td></tr>';
+    // $('.employee').append('<tr><td>' + obj.id + '</td><td>' + obj.name + '</td><td>' + obj.sex +
+    //     '</td><td>' + obj.age + '</td><td>' + obj.addr + '</td></tr>')
+    $('.employee').append(str)
+        // console.log(score);
+
+
+    //2.数组
+    var score = [78, 89, 35, 12, 12, 56];
+    score.forEach(function(value, index) {
+            // console.log(value);
+            $('.score').append('<li>' + value + '</li>')
+        })
+        //each(function(index.value){}) 循环对象
+        //3.复杂表示法（对象+数组）
+    var student = [{
+        id: '937493',
+        name: 'Tom',
+        sex: 'male',
+        age: '18',
+        score: [78, 89, 35, 12, 12, 56],
+        addr: 'ShenZhen China'
+    }, {
+        id: '937493',
+        name: 'Tom',
+        sex: 'male',
+        age: '18',
+        score: [78, 89, 35, 12, 12, 56],
+        addr: 'ShenZhen China'
+    }, {
+        id: '937493',
+        name: 'Tom',
+        sex: 'male',
+        age: '18',
+        score: [78, 89, 35, 12, 12, 56],
+        addr: 'ShenZhen China'
+    }];
+
+    for (var i in student) {
+        console.log(student[i]);
+        var data = '<tr><td>' + student[i].id + '</td><td>' + student[i].name + '</td><td>' +
+            student[i].sex + '</td><td>' + student[i].age + '</td><td>' + student[i].score.join(' ') + '</td><td>' +
+            student[i].addr + '</td></tr>';
+        $('.student').append(data)
+    }
+</script>
+
+</html>

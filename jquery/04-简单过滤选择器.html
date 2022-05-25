@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单过滤选择器</title>
+</head>
+
+<body>
+    <ul>
+        <li>li01</li>
+        <li>li02</li>
+        <li class="li3">li03</li>
+        <li>li04</li>
+        <li>li05</li>
+    </ul>
+    <h1>1</h1>
+    <h2>2</h2>
+    <h3>3</h3>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script>
+    // // :first或first() 第一个元素
+    //  $('ul li:first').css('color', 'red');
+    //  $('ul li').first().css('color', 'red');
+
+    // 最后一个元素:last或last()
+    // $('ul li:last').css('color', 'blue');
+    // $('ul li').last().css('color', 'blue');
+
+    // :not(selector) 除select之外的元素
+    // $('ul li:not(.li3)').css('color', 'blue');
+    // $('ul li:not(.li3)').css('color', 'blue');
+
+    // :even 偶数元素
+    // $('ul li:even').css('color', 'pink');
+    // $('ul li:even').mouseover(function() {
+    //     $(this).css('color', 'blue')
+    // })
+
+    // :odd 偶数元素
+    // $('ul li:odd').css('color', 'pink');
+
+    // :eq(index) 第n个元素
+    // $('ul li:eq(3)').css('color', 'green')
+    // $('ul li').eq(3).css('color', 'green')
+
+    //:get(index) 大于第n个后的元素
+    // $('ul li:gt(0)').css('color', 'orange');
+
+    //:lt(index) 小于第n个后的元素
+    // $('ul li:lt(2)').css('color', 'orange');
+
+
+    // : header 选择h1~h6所有标题元素
+    $(':header').css('color', 'red');
+</script>
+
+</html>

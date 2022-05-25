@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取天气情况</title>
+</head>
+
+<body>
+    <!-- <div class="weather"></div> -->
+    <ul class="weather"></ul>
+
+</body>
+<!-- <script src="../jq/jquery.min-3.6.0.js"></script> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.js"></script>
+<script>
+    $.ajax({
+        url: 'http://www.tianqiapi.com/api',
+        data: {
+            version: 'v9',
+            appid: '23035354',
+            appsecret: '8YvlPNrz',
+            city: '拉萨'
+        }
+    }).then(function(res) {
+        console.log(res);
+        for (var i in res.data) {
+            $('.weather').append('<li>日期' + res.data[i].date + '&nbsp;&nbsp;空气质量为' + res.data[i].air_level + '&nbsp;&nbsp;实时温度为' + res.data[i].tem + '</li>');
+            // $('.weather').append('<li>日期' + res.data[i].data + '</li>');
+        }
+
+    }).catch(function(err) {
+        console.log(err);
+    })
+</script>
+
+
+</html>

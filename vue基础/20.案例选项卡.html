@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab ul {
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .tab ul li {
+            box-sizing: border-box;
+            padding: 0;
+            float: left;
+            width: 100px;
+            height: 45px;
+            line-height: 45px;
+            list-style: none;
+            text-align: center;
+            border-top: 1px solid blue;
+            border-right: 1px solid blue;
+            cursor: pointer;
+        }
+        
+        .tab ul li:first-child {
+            border-left: 1px solid blue;
+        }
+        
+        .tab ul li.active {
+            background-color: orange;
+        }
+        
+        .tab div {
+            width: 500px;
+            height: 300px;
+            display: none;
+            text-align: center;
+            font-size: 30px;
+            line-height: 300px;
+            border: 1px solid blue;
+            border-top: 0px;
+        }
+        
+        .tab div.current {
+            display: block;
+        }
+        
+        img {
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="tab">
+            <ul>
+                <li v-on:click='change(index)' :class='currentIndex==index?"active":""' :key='item.id' v-for='(item,index) in list'>{{item.title}}</li>
+            </ul>
+            <div :class='currentIndex==index?"current":""' :key='item.id' v-for='(item,index) in list'>
+                <img :src="item.path" alt="">
+                <!-- <img src="img/apple.jpg" alt=""> -->
+            </div>
+            <!-- <div>
+                <img src="img/orange.jpg" alt="">
+            </div>  
+            <div>
+                <img src="img/lemon.jpg" alt="">
+            </div> -->
+        </div>
+    </div>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                currentIndex: 0,
+                // 选项卡当前的索引
+                list: [{
+                    id: 1,
+                    title: 'apple',
+                    path: 'img/apple.jpg'
+                }, {
+                    id: 2,
+                    title: 'orange',
+                    path: 'img/orange.jpg'
+                }, {
+                    id: 3,
+                    title: 'lemon',
+                    path: 'img/lemon.jpg'
+                }]
+            },
+            methods: {
+                change: function(index) {
+                    this.currentIndex = index;
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

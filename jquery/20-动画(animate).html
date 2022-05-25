@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 300px;
+            background-color: #9f45;
+        }
+    </style>
+</head>
+
+<body>
+    <button>演示动画</button>
+    <div class="box">box</div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<script>
+    $('button').click(function() {
+        /*    $('.box').animate({
+               width: '100px',
+               height: '100px',
+               background: 'red' //不是W3C所有属性都支持
+           }, 'slow') */
+
+        $('.box').animate({
+            width: '100px',
+            height: '100px',
+            background: 'red' //不是W3C所有属性都支持
+        }, '3000')
+    })
+</script>
+
+</html>

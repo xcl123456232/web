@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--文档声明-->
+<html lang="en">
+<!--编码语言-->
+
+<head>
+    <meta charset="UTF-8">
+    <!--编码格式-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html网页基本结构</title>
+    <!--网页标题-->
+    <script>
+        //获得Date总的毫秒数（时间戳） 不是当前时间的毫秒数 而是距离1970年1月1号过了多少毫秒数
+        //1.通过valueOf() getTime()
+        var date = new Date();
+        console.log(date.valueOf()); //就是 现在时间距离1970.1.1 总的毫秒数
+        console.log(date.getTime());
+        //2.简单的写法（最常用的写法）
+        var date1 = +new Date(); // 返回的就是总的毫秒数
+        console.log(date1);
+        //3.H5 新增的 获得总的毫秒数
+        console.log(Date.now());
+    </script>
+</head>
+
+<body>
+    网页基本内容
+</body>
+
+</html>

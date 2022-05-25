@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+</head>
+
+<body>
+    <table border="1" width="800" class="students">
+        <caption n>学生成绩表</caption>
+
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>成绩</th>
+                <th>地址</th>
+            </tr>
+        </thead>
+    </table>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script>
+        // $.ajax({
+        //     type: 'get',
+        //     url: './data/data.json',
+        //     contentType: 'aapplication/json',
+        //     success: function(students) {
+        //         for (var i in students) {
+        //             console.log(students[i]);
+        //             var data = '<tr><td>' + students[i].id + '</td><td>' + students[i].name + '</td><td>' +
+        //                 students[i].sex + '</td><td>' + students[i].age + '</td><td>' + students[i].score.join(' ') + '</td><td>' +
+        //                 students[i].addr + '</td></tr>';
+        //             $('.students').prepend(data)
+        //         }
+        //     },
+        //     error: function(err) {
+        //         console.log(err.statusText);
+        //     }
+        // })
+
+        //$.ajax({ .....}).done(function(){}).fail(function(err){})
+        /*         $.ajax({
+                    type: 'get',
+                    url: './data/data.json'
+                }).done(function(students) {
+                    for (var i in students) {
+                        console.log(students[i]);
+                        var data = '<tr><td>' + students[i].id + '</td><td>' + students[i].name + '</td><td>' +
+                            students[i].sex + '</td><td>' + students[i].age + '</td><td>' + students[i].score.join(' ') + '</td><td>' +
+                            students[i].addr + '</td></tr>';
+                        $('.students').prepend(data)
+                    }
+                }).fail(function(err) {
+                    if (err.status == 404) {
+                        location.href = '404.html'
+                    }
+                    console.log(err.status);
+                }) */
+
+        // 第三种
+        $.ajax({
+            type: 'get',
+            url: './data/data.json'
+        }).then(function(students) {
+            for (var i in students) {
+                console.log(students[i]);
+                var data = '<tr><td>' + students[i].id + '</td><td>' + students[i].name + '</td><td>' +
+                    students[i].sex + '</td><td>' + students[i].age + '</td><td>' + students[i].score.join(' ') + '</td><td>' +
+                    students[i].addr + '</td></tr>';
+                $('.students').prepend(data)
+            }
+        }).catch(function(err) {
+            // if (err.status == 404) {
+            //     location.href = '404.html'
+            // }
+            console.log(err);
+            // console.log(err.status);
+        })
+    </script>
+</body>
+
+</html>

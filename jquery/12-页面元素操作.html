@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>aaaa</li>
+            <li>aaaaa</li>
+            <li>aaaaaaaaa</li>
+        </ul>
+    </div>
+    <div class="box" title="bpx2"><span>box2</span></div>
+    <p class="p">pppppppppppppppp</p>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.js"></script>
+<script>
+    //a.创建DOM节点  $(dom节点内容)
+    var dom = $('<p><span>这是添加的内容</span></p>');
+    console.log(dom);
+    //b.在内部添加DOM节点
+    //append()
+    // $('.box').append(dom);
+
+    // appendTo()
+    // $(dom).appendTo($('.box'));
+
+    // prepend()
+    // $('.box').prepend(dom)
+
+    // prependTo
+    // $(dom).prependTo($('.box'))
+
+    // c.在外部添加DOM节点
+    //before()
+    // $('.box').before('<strong>strong</strong>');
+
+    // $('<strong>strong</strong>').insertBefore($('.box'))
+    var dom2 = $('<strong>strong</strong>')
+        // $('.box').after(dom2);
+
+    $(dom2).insertAfter($('.box'))
+        // dom2.insertAfter($('.box'));
+
+    // d.复制DOM节点 clone()
+    $('.p').click(function() {
+        alert(1111111)
+    });
+
+
+    // $('.box').append($('.p').clone())
+    $('.box').append($('.p').clone(true))
+
+    // e.删除DOM节点
+    // $('.box').remove('[title]')
+
+
+    // remove(dom节点)
+    // $('.box').remove('ul')
+
+
+    $('.box').empty()
+</script>
+
+</html>

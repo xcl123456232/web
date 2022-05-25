@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+
+<body>
+    <div class="boxs">
+        淘宝二维码
+        <img src="images/open.png">
+        <button>x</button>
+    </div>
+
+
+    <script>
+        //1.获取元素
+        var btn = document.querySelector('button');
+        var boxs = document.querySelector('.box');
+        //2.注册事件 程序处理
+        btn.onclick = function() {
+            boxs.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 12px;
+        }
+        
+        table {
+            width: 360px;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        
+        table tr th,
+        td {
+            border: solid 1px #666;
+            text-align: center;
+        }
+        
+        table tr td img {
+            border: solid 1px #ccc;
+            padding: 3px;
+            width: 42px;
+            height: 60px;
+            cursor: pointer;
+        }
+        
+        table tr th {
+            background-color: #ccc;
+            height: 32px;
+        }
+        
+        .btn {
+            border: #666 1px solid;
+            padding: 2px;
+            width: 50px;
+            filter: progid: DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#ECE9D8);
+        }
+        
+        .clsImg {
+            position: absolute;
+            border: solid 1px #ccc;
+            padding: 3px;
+            width: 85px;
+            height: 120px;
+            background-color: #eee;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="data">
+        <tr>
+            <th>选项</th>
+            <th>编号</th>
+            <th>封面</th>
+            <th>购书人</th>
+            <th>性别</th>
+            <th>购书价</th>
+        </tr>
+        <tr id="0">
+            <td><input type="checkbox" id="checkbox1" value="0"></td>
+            <td>1001</td>
+            <td><img src="images/01.jpg" alt=""></td>
+            <td>李小明</td>
+            <td>男</td>
+            <td>35.6元</td>
+        </tr>
+        <tr id="1">
+            <td><input type="checkbox" id="checkbox2" value="1"></td>
+            <td>1002</td>
+            <td><img src="images/02.jpg" alt=""></td>
+            <td>刘明明</td>
+            <td>男</td>
+            <td>35.6元</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="checkbox3" value="2"></td>
+            <td>1003</td>
+            <td><img src="images/03.jpg" alt=""></td>
+            <td>张小星</td>
+            <td>女</td>
+            <td>35.6元</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td style="text-align: left; height:28px">
+                <span><input type="checkbox" id="chekAll"></span>
+                <span><input type="button" id="btnDel" class="btn" value="删除"></span>
+            </td>
+        </tr>
+    </table>
+    <img id="imgTip" class="clsImg" src="images/01.jpg" />
+
+</body>
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+    //隔行显示不同的颜色
+    $('.data tr:nth-child(even)').css('background-color', '#eee')
+        //单击"全选"时，选中所有图书
+    $('#chekAll').change(function() {
+            if (this.checked) {
+                $('.data input[type=checkbox]').attr('checked', true)
+            } else {
+                $('.data input[type=checkbox]').attr('checked', false)
+            }
+        })
+        //单击"删除"按钮，执行删除操作
+    $('#btnDel').click(function() {
+        var ckAll = $('.data input[type=checkbox]');
+        console.log(ckAll);
+        if (ckAll.length > 0) {
+            $.each(ckAll, function(index, item) {
+                if (this.checked) {
+                    // console.log(item);
+                    $(ckAll[index]).parent().parent().remove();
+                }
+            })
+        }
+    })
+    var x = 5,
+        y = 15;
+    //鼠标移到图片上，预览该图片
+    $('.data img').mouseover(function(e) {
+        $('.clsImg')
+            .attr('src', $(this).attr('src'))
+            .fadeIn(3000)
+            .css({
+                top: (e.pageY - y) + 'px',
+                left: (e.pageX + x) + 'px'
+            })
+    })
+    $('.data img').mouseout(function() {
+        $('.clsImg').hide()
+    })
+</script>
+
+</html>

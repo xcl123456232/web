@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+
+<body>
+    <!-- <script src="./jquery.min-3.6.0.js"></script> -->
+    <div class="box"></div>
+</body>
+<!-- <script src="/jquery.min-3.6.0.js"></script> -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script>
+    console.log($);
+    $('.box')
+        .html('欢迎来到JQ世界')
+        .css('color', 'red')
+        .mouseover(
+            function() {
+                $(this).fadeOut(4000)
+            })
+</script>
+
+</html>
