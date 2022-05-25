@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .root {
+            background-color: orange;
+        }
+        
+        .second {
+            background-color: lightgreen;
+        }
+        
+        .third {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="root">
+        <div>{{root}}</div>
+        <second-com></second-com>
+        <second-com></second-com>
+    </div>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript">
+        /* Vue调试工具的安装与使用 */
+        Vue.component('second-com', {
+            data: function() {
+                return {
+                    second: '二级组件'
+                }
+            },
+            template: `<div class='second'>
+            <div>{{second}}</div>
+            <third-com></thrid-com>
+            <third-com></thrid-com>
+            <third-com></thrid-com>
+            </div>`
+        });
+        Vue.component('third-com', {
+            data: function() {
+                return {
+                    third: '三级组件'
+                }
+            },
+            template: `<div class='third'>
+            <div>{{third}}</div>
+                </div>`
+        });
+
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                root: '顶层组件'
+            },
+            methods: {
+                handle: function() {
+
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>
