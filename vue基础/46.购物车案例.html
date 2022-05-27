@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <my-cart></my-cart>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript">
+        var Cartitle = {
+            props: ['uname'],
+            template: `
+            <div class="title">{{uname}}商品</div>
+            `
+        }
+        var CartList = {
+            props: ['list'],
+            template: `
+            <div :key='item.id' v-for='item in list' class="item">
+                <img src="">
+                <div class="name">{{item.name}}</div>
+                <div class="change">
+                <a href="">-</a>
+                <input type="text" class="num">
+                <a href="">+</a>
+                </div>
+                <div class="del" @click='del(item.id)'>x</div>
+            </div>`,
+            method: {
+                del: function(id) {
+                    // 把id传递给父组件
+                    this.$emit('cart-del', id);
+
+                }
+            }
+        }
+        var CartTotal = {
+            props: ['list'],
+            template: `
+            <div class="total">
+                <span>总价：{{total}}</span>
+                <button>结算</button>
+            </div>
+            `,
+            computed: {
+                total: function() {
+                    var t = 0;
+                    console.log(this.list);
+                    this.list.forEach(item => {
+                        t += item.price * item.num;
+                    });
+                    return t;
+                }
+            }
+        }
+        Vue.component('my-cart', {
+            data: function() {
+                return {
+                    uname: '张三',
+                    list: [{
+                        id: 1,
+                        name: 'TCL家电',
+                        price: 1000,
+                        num: 1,
+                        img: ''
+                    }, {
+                        id: 2,
+                        name: '机顶盒',
+                        price: 1000,
+                        num: 1,
+                        img: ''
+                    }, {
+                        id: 3,
+                        name: '海尔冰箱',
+                        price: 1000,
+                        num: 1,
+                        img: ''
+                    }, {
+                        id: 4,
+                        name: '小米手机',
+                        price: 1000,
+                        num: 1,
+                        img: ''
+                    }, {
+                        id: 5,
+                        name: 'PPTV电视',
+                        price: 1000,
+                        num: 2,
+                        img: ''
+                    }, ]
+                }
+            },
+            template: `
+            <div class="cart">
+                <cart-title :uname='uname'></cart-title>
+                <cart-list :list='list' @cart-del='delCart($event)'></cart-list>
+                <cart-total :list='list'></cart-total>
+            </div>
+            `,
+            components: {
+                'cart-title': Cartitle,
+                'cart-list': CartList,
+                'cart-total': CartTotal
+            },
+            methods: {
+                delCart: function(id) {
+                    // 根据id删除list对应的数据
+                    // 找到id所对应数据的索引
+                    var index = this.list.findIndex(item => {
+                        return itm.id == id;
+                    });
+                    // 根据索引删除对应的数据
+                    this.list.splice(index, 1);
+
+                }
+            }
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                handle: function() {
+
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>
