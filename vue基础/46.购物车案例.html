@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .title {
+            text-align: center;
+        }
+        
+        .item {}
+    </style>
 </head>
 
 <body>
@@ -25,21 +32,44 @@
         var CartList = {
             props: ['list'],
             template: `
+            <div>
             <div :key='item.id' v-for='item in list' class="item">
                 <img src="">
                 <div class="name">{{item.name}}</div>
                 <div class="change">
-                <a href="">-</a>
-                <input type="text" class="num">
-                <a href="">+</a>
+                <a href="" @click.prevent='sub(item.id)'>-</a>
+                <input type="text" class="num" :value='item.num' @blur='changeNum(item.id,$event)'>
+                <a href="" @click.prevent='add(item.id)'>+</a>
                 </div>
                 <div class="del" @click='del(item.id)'>x</div>
-            </div>`,
-            method: {
+            </div>
+            <div>
+            `,
+            methods: {
+                changeNum: function(id, event) {
+                    // console.log(id, event.target.value);
+                    this.$emit('change-num', {
+                        id: id,
+                        type: 'change',
+                        num: event.target.value
+                    });
+                },
+                sub: function(id) {
+                    this.$emit('change-num', {
+                        id: id,
+                        type: 'sub'
+                    });
+                },
+                add: function(id) {
+                    this.$emit('change-num', {
+                        id: id,
+                        type: 'add'
+                    });
+                },
                 del: function(id) {
+                    console.log(id);
                     // 把id传递给父组件
                     this.$emit('cart-del', id);
-
                 }
             }
         }
@@ -102,7 +132,7 @@
             template: `
             <div class="cart">
                 <cart-title :uname='uname'></cart-title>
-                <cart-list :list='list' @cart-del='delCart($event)'></cart-list>
+                <cart-list  :list='list' @change-num='changeNum($event)' @cart-del='delCart($event)'></cart-list>
                 <cart-total :list='list'></cart-total>
             </div>
             `,
@@ -112,11 +142,41 @@
                 'cart-total': CartTotal
             },
             methods: {
+                changeNum: function(val) {
+                    // 分为三种情况：输入域变更，加号变更，减号变更
+                    // console.log(val);
+                    // 根据子组件传递过来的数据，更新list中对应的数据
+                    if (val.type == 'change') {
+                        this.list.some(item => {
+                            if (item.id == val.id) {
+                                item.num = val.num;
+                                return true;
+                            }
+                        });
+                    } else if (val.type == 'sub') {
+                        this.list.some(item => {
+                            if (item.id == val.id) {
+                                item.num -= 1;
+                                return true;
+                            }
+                        });
+                    } else if (val.type == 'add') {
+                        this.list.some(item => {
+                            if (item.id == val.id) {
+                                item.num += 1;
+                                return true;
+                            }
+                        });
+                    }
+
+
+                },
                 delCart: function(id) {
                     // 根据id删除list对应的数据
                     // 找到id所对应数据的索引
+                    console.log(id);
                     var index = this.list.findIndex(item => {
-                        return itm.id == id;
+                        return item.id == id;
                     });
                     // 根据索引删除对应的数据
                     this.list.splice(index, 1);
