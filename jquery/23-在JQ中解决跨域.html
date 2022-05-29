@@ -14,42 +14,42 @@
 </body>
 <script src="jquery.min-3.6.0.js"></script>
 <script>
-    // $.ajax({
-    //     url: 'http://v.juhe.cn/joke/content/list.php',
-    //     data: {
-    //         sort: 'asc',
-    //         time: '1418816972',
-    //         page: Math.round(Math.ceil(Math.random() * 19 + 1)), // [1,20]
-    //         pagesize: 5,
-    //         key: '0fe4a346bf75c1414f4d73b611fc0d8f'
-    //     },
-    //     dataType: 'jsonp'
-    // }).then(function(res) {
-    //     console.log(res.result.data)
-    //     var jokes = res.result.data;
-    //     for (var i in jokes) {
-    //         $('.joke').append('<li>' + jokes[i].content + '</li>')
-    //     }
-
-    // })
-
-
-
     $.ajax({
-        url: 'http://web.juhe.cn/environment/air/cityair',
+        url: 'http://v.juhe.cn/joke/content/list.php',
         data: {
-            sort: 'shanghai',
+            sort: 'asc',
+            time: '1418816972',
+            page: Math.round(Math.ceil(Math.random() * 19 + 1)), // [1,20]
+            pagesize: 5,
             key: '0fe4a346bf75c1414f4d73b611fc0d8f'
         },
         dataType: 'jsonp'
     }).then(function(res) {
         console.log(res.result.data)
-            // var jokes = res.result.data;
-            // for (var i in jokes) {
-            //     $('.joke').append('<li>' + jokes[i].content + '</li>')
-            // }
+        var jokes = res.result.data;
+        for (var i in jokes) {
+            $('.joke').append('<li>' + jokes[i].content + '</li>')
+        }
 
     })
+
+
+
+    // $.ajax({
+    //     url: 'http://web.juhe.cn/environment/air/cityair',
+    //     data: {
+    //         sort: 'shanghai',
+    //         key: '0fe4a346bf75c1414f4d73b611fc0d8f'
+    //     },
+    //     dataType: 'jsonp'
+    // }).then(function(res) {
+    //     console.log(res.result.data)
+    //         // var jokes = res.result.data;
+    //         // for (var i in jokes) {
+    //         //     $('.joke').append('<li>' + jokes[i].content + '</li>')
+    //         // }
+
+    // })
 </script>
 
 </html>
