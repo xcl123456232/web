@@ -4,3 +4,4 @@
 #忽略node_modules下所有的文件
 nodejs/node_modules/
 nodejsbaogl/node_modules/
+nodeshujk/node_modules/
