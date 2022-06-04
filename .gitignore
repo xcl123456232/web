@@ -1,1 +1,6 @@
+#忽略vscode下所有的文件
 .vscode/
+
+#忽略node_modules下所有的文件
+nodejs/node_modules/
+nodejsbaogl/node_modules/
