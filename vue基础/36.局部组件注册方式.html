@@ -15,10 +15,10 @@
         <hello-jerry></hello-jerry>
         <test-com></test-com>
     </div>
-    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="./js/vue.js"></script>
     <script type="text/javascript">
-        // 局部组件注册只能在注册他的父组件中使用-------有问题
         Vue.component('test-com', {
+            // 局部组件注册只能在注册他的父组件中使用
             template: '<div>Test<hello-world></hello-world></div>'
         });
         var HelloWorld = {
@@ -32,7 +32,7 @@
         var HelloTom = {
             data: function() {
                 return {
-                    msg: 'HelloWorld'
+                    msg: 'HelloTom'
                 }
             },
             template: '<div>{{msg}}</div>'
@@ -40,7 +40,7 @@
         var HelloJerry = {
             data: function() {
                 return {
-                    msg: 'HelloWorld'
+                    msg: 'HelloJerry'
                 }
             },
             template: '<div>{{msg}}</div>'
@@ -48,12 +48,6 @@
         var vm = new Vue({
             el: '#app',
             data: {},
-            methods: {
-                handle: function() {
-
-                }
-
-            },
             components: {
                 'hello-world': HelloWorld,
                 'hello-tom': HelloTom,

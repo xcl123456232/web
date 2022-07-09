@@ -17,7 +17,7 @@
         Vue.directive('color', {
             bind: function(el, cc) {
                 // 根据指令的参数设置背景色
-                // console.log(binding.value.color);
+                console.log(cc.value.color);
                 el.style.backgroundColor = cc.value.color;
             }
         });

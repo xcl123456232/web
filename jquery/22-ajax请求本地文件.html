@@ -67,8 +67,8 @@
             type: 'get',
             url: './data/data.json'
         }).then(function(students) {
+            console.log(students);
             for (var i in students) {
-                console.log(students[i]);
                 var data = '<tr><td>' + students[i].id + '</td><td>' + students[i].name + '</td><td>' +
                     students[i].sex + '</td><td>' + students[i].age + '</td><td>' + students[i].score.join(' ') + '</td><td>' +
                     students[i].addr + '</td></tr>';

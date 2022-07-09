@@ -14,7 +14,7 @@
         <menu-item title='来自父组件的值'></menu-item>
         <menu-item :title='ptitle' content="hello"></menu-item>
     </div>
-    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/vue.js"></script>
     <script type="text/javascript">
         Vue.component('menu-item', {
             props: ['title', 'content'],
@@ -30,12 +30,6 @@
             data: {
                 pmsg: '父组件中的内容',
                 ptitle: '动态绑定属性'
-            },
-            methods: {
-                handle: function() {
-
-                }
-
             }
         })
     </script>

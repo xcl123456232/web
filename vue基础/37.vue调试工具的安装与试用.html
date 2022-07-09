@@ -27,7 +27,7 @@
         <second-com></second-com>
         <second-com></second-com>
     </div>
-    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/vue.js"></script>
     <script type="text/javascript">
         /* Vue调试工具的安装与使用 */
         Vue.component('second-com', {
@@ -38,20 +38,21 @@
             },
             template: `<div class='second'>
             <div>{{second}}</div>
-            <third-com></thrid-com>
-            <third-com></thrid-com>
-            <third-com></thrid-com>
+            <third-com></third-com>
+            <third-com></third-com>
+            <third-com></third-com>
             </div>`
         });
+
+
+
         Vue.component('third-com', {
             data: function() {
                 return {
                     third: '三级组件'
                 }
             },
-            template: `<div class='third'>
-            <div>{{third}}</div>
-                </div>`
+            template: `<div class='third'><div>{{third}}</div></div>`
         });
 
 
@@ -59,12 +60,6 @@
             el: '#app',
             data: {
                 root: '顶层组件'
-            },
-            methods: {
-                handle: function() {
-
-                }
-
             }
         })
     </script>

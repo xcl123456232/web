@@ -10,11 +10,13 @@
 
 <body>
     <div id="app">
+        <!-- 有bug发生内容填充到slot中，会覆盖slot中的内容 -->
         <alert-box>有bug发生</alert-box>
         <alert-box>有一个警告</alert-box>
+        <!-- 如果中间没有内容，则显示slot中的内容 -->
         <alert-box></alert-box>
     </div>
-    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/vue.js"></script>
     <script type="text/javascript">
         // 组件插槽
         Vue.component('alert-box', {

@@ -13,12 +13,12 @@
         <div>{{pmsg}}</div>
         <menu-item :menu-title='ptitle'></menu-item>
     </div>
-    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="lib/vue.js"></script>
     <script type="text/javascript">
         /* 
-                父组件向子组件传值-属性名规则 
-                prop中使用驼峰形式，模板中就要使用短横线形式，字符串形式模板中没有这个限制
-                */
+                    父组件向子组件传值-属性名规则 
+             props中使用驼峰形式，模板中就要使用短横线形式，字符串形式模板中没有这个限制
+              */
         Vue.component('menu-item', {
             props: ['menuTitle'],
             template: '<div>{{menuTitle}}<third-com testTitle="hello"></third-com></div>'
@@ -32,7 +32,7 @@
             data: {
                 pmsg: '父组件中的内容',
                 ptitle: '动态绑定属性'
-            },
+            }
         })
     </script>
 </body>

@@ -30,14 +30,14 @@
         </base-layout>
 
     </div>
-    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/vue.js"></script>
     <script type="text/javascript">
         Vue.component('base-layout', {
             template: `
             <div>
                 <header>
                     <slot name='header'></slot>
-                    </header>
+                </header>
                 <main>
                     <slot></slot>
                 </main>
@@ -49,13 +49,7 @@
         });
         var vm = new Vue({
             el: '#app',
-            data: {},
-            methods: {
-                handle: function() {
-
-                }
-
-            }
+            data: {}
         })
     </script>
 </body>

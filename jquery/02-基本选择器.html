@@ -8,13 +8,13 @@
     <script>
         // console.log($('.box'));
         //如果JQ代码写在body前，必须将代码写在ready事件中，ready事件表示所有DOM加载完之后才执行
-        $(document).ready(function() {
-                console.log($('.box'));
-            })
-            //简化写法
+        // $(document).ready(function() {
+        //         console.log($('.box'));
+        //     })
+        //简化写法
         $(function() {
-            //ready事件可以写多个，相当于JS中的onload事件，跟onload的区别是可以出现多次，而onload只能出现一次
-            // console.log($('.box'));
+            //ready事件可以写多个，相当于JS中的onload事件，跟onload的区别是可以出现多次，而ready只能出现一次
+            console.log($('.box'));
             //id
             $('#box').css({
                     color: 'blue',

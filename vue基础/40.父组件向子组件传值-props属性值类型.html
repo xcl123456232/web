@@ -13,14 +13,16 @@
         <div>{{pmsg}}</div>
         <menu-item :pstr='pstr' :pnum='12' pnum2='12' :pboo='true' pboo2='true' :parr='parr' :pobj='pobj'></menu-item>
     </div>
-    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/vue.js"></script>
     <script type="text/javascript">
         Vue.component('menu-item', {
             props: ['pstr', 'pnum', 'pnum2', 'pboo', 'pboo2', 'parr', 'pobj'],
             template: `
             <div>
                 <div>{{pstr}}</div>
+                <!-- pnum为数值类型 -->
                 <div>{{12+pnum}}</div>
+                <!-- pnum2为string类型 -->
                 <div>{{12+pnum2}}</div>
                 <div>{{typeof pboo}}</div>
                 <div>{{typeof pboo2}}</div>

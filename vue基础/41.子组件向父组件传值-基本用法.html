@@ -13,10 +13,13 @@
         <div :style='{fontSize:fontSize+"px"}'>{{pmsg}}</div>
         <menu-item :parr='parr' @enlarge-text='handle($event)'></menu-item>
     </div>
-    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/vue.js"></script>
     <script type="text/javascript">
-        /*         子组件向父组件传值-基本用法
-                                props传递数据原则：单项数据流 */
+        /* 子组件向父组件传值-基本用法
+        props传递数据原则：单项数据流
+        1.子组件通过自定义事件向父组件传值
+        2.父组件监听子组件的事件
+         */
         Vue.component('menu-item', {
             props: ['parr'],
             template: `

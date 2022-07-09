@@ -14,12 +14,14 @@
         <!-- <HelloWorld></HelloWorld> 报错不支持 -->
         <hello-world></hello-world>
     </div>
-    <script type="text/javascript" src="js/vue.min.js"></script>
+    <!-- <script type="text/javascript" src="js/vue.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
+    <script src="./lib/vue.js"></script>
     <script type="text/javascript">
         /* 组件注意事项：
-                   如果使用驼峰命名组件，那么在使用组件的时候，只能在字符串模板中用驼峰的方式使用组件
-                   但是在普通的标签模板中，必须使用短横线的方式使用组件 
-        */
+            如果使用驼峰命名组件，那么在使用组件的时候，只能在字符串模板中用驼峰的方式使用组件
+            但是在普通的标签模板中，必须使用短横线的方式使用组件 
+            */
         Vue.component('HelloWorld', {
             data: function() {
                 return {
@@ -46,18 +48,11 @@
                 handle: function() {
                     this.count++;
                 }
-
             }
         })
         var vm = new Vue({
             el: '#app',
             data: {}, //data为对象
-            methods: {
-                handle: function() {
-
-                }
-
-            }
         })
     </script>
 </body>
