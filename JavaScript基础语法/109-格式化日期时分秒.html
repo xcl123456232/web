@@ -13,11 +13,11 @@
         //要求封装一个函数返回当前的时分秒 格式 08：08：08
         function getTime() {
             var time = new Date();
-            var h = time.getHours();
+            var h = time.getHours();//0-23
             h = h < 10 ? '0' + h : h;
-            var m = time.getMinutes();
+            var m = time.getMinutes();//0-59
             m = m < 10 ? '0' + m : m;
-            var s = time.getSeconds();
+            var s = time.getSeconds();//0-59
             s = s < 10 ? '0' + s : s;
             return h + ':' + m + ':' + s;
         }

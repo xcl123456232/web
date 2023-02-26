@@ -1,108 +1,107 @@
 <!DOCTYPE html>
 <!--文档声明-->
 <html lang="en">
-<!--编码语言-->
+  <!--编码语言-->
 
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <!--编码格式-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>html网页基本结构</title>
     <!--网页标题-->
     <script>
-        var num = 10;
-        fun();
+      var num = 10;
+      fun();
 
-        function fun() {
-            console.log(num);
-            var num = 20;
-        }
-        // 相当于执行了以下操作
-        // //var num;
-        // function fun() {
-        //     var num;
-        //     console.log(num);
-        //     num = 20;
-        // }
-        // num = 10;
-        // fun();
+      function fun() {
+        console.log(num);
+        var num = 20;
+      }
+      // 相当于执行了以下操作
+      // //var num;
+      // function fun() {
+      //     var num;
+      //     console.log(num);
+      //     num = 20;
+      // }
+      // num = 10;
+      // fun();
 
+      console.log("-----------------上为案例1-------------------");
 
-        var num = 10;
+      var num = 10;
+      function fn() {
+        console.log(num);
+        var num = 20;
+        console.log(num);
+      }
+      fn();
+      //相当于执行以下代码
+      // var num;
+      // function fn() {
+      //     var num;
+      //     console.log(num);
+      //     var num = 20;
+      //     console.log(num);
+      // }
+      // num = 10;
+      // fn();
 
-        function fn() {
-            console.log(num);
-            var num = 20;
-            console.log(num);
-        }
-        fn();
-        //相当于执行以下代码
+      console.log("-----------------上为案例2-------------------");
 
-        var num;
-
-        function fn() {
-            var num;
-            console.log(num);
-            var num = 20;
-            console.log(num);
-        }
-        num = 10;
-        fn();
-
-
-        var a = 18;
-
-        function f1() {
-            var b = 9;
-            console.log(a);
-            console.log(b);
-            var a = '123';
-        }
-
-
-        // 相当于执行了下面代码
-        // var a;
-
-        // function f1() {
-        //     var b;
-        //     var a;
-        //     b = 9;
-        //     console.log(a);
-        //     console.log(b);
-        //     a = '123';
-        // }
-        // a = 18;
-        // f1();
-        //案例4
-        f1();
-        console.log(c);
-        console.log(b);
+      var a = 18;
+      function f1() {
+        var b = 9;
         console.log(a);
+        console.log(b);
+        var a = "123";
+      }
+      f1();
 
-        function f1() {
-            var a = b = c = 9;
-            console.log(a);
-            console.log(b);
-            console.log(c);
-        }
-        //相当于执行以下代码
-        function f1() {
-            var a1 = b = c = 9;
-            //相当于var a=9;b=9;c=9; b和c直接赋值 没有var 声明当全局变量看
-            //集体声明 var a=9,b=9,c=9;
-            console.log(a1);
-            console.log(b);
-            console.log(c);
-        }
-        f1();
-        console.log(c); //9
-        console.log(b); //9
-        console.log(a1); //undefined
+      // 相当于执行了下面代码
+      // var a;
+      // function f1() {
+      //     var b;
+      //     var a;
+      //     b = 9;
+      //     console.log(a);
+      //     console.log(b);
+      //     a = '123';
+      // }
+      // a = 18;
+      // f1();
+
+      console.log("-----------------上为案例3-------------------");
+
+      //案例4
+      f2();
+      console.log(c);
+      console.log(b);
+      console.log(a1);
+
+      function f2() {
+        var a1 = (b = c = 9);
+        console.log(a1);
+        console.log(b);
+        console.log(c);
+      }
+      //相当于执行以下代码
+      // function f2() {
+      //     var a1 = b = c = 9;
+      //     //相当于var a=9;b=9;c=9; b和c直接赋值 没有var 声明当全局变量看
+      //     //集体声明 var a=9,b=9,c=9;
+      //     console.log(a1);
+      //     console.log(b);
+      //     console.log(c);
+      // }
+      // f2();
+      // console.log(c); //9
+      // console.log(b); //9
+      // console.log(a1); //undefined
     </script>
-</head>
+  </head>
 
-<body>
+  <body>
     网页基本内容
-</body>
-
+  </body>
 </html>
